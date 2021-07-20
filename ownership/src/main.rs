@@ -5,6 +5,8 @@ fn main() {
    handle_return_ownership();
 
    cal_string_length();
+
+   check_ref_of_variable();
     
 }
 
@@ -75,6 +77,22 @@ fn calc_str_len(some_string: String)-> (String, usize) {
     (some_string, len)
 }
 
+
+// Ex : 4 
+
+// Checking scope overlap on mutable and immutable 
+fn check_ref_of_variable() {
+
+        let mut s = String::from("hello");
+
+        let r3 = &mut s; // no problem
+        println!("Mutable Ref of r3 {}", r3);
+    
+        let r1 = &s; // no problem
+        let r2 = &s; // no problem
+        println!("Immutable Ref of r1 {} and r2 {}", r1, r2);
+        // r1 and r2 are no longer used after this point    
+}
 
 
 
